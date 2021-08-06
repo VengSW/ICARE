@@ -9,7 +9,26 @@
     <style>
         a{
             color:white;
-            padding-bottom: 50px;
+            padding-right: 50px;
+            font-family: "Lato";
+            font-size: 25px;
+            text-decoration: none;
+        }
+        a:hover{
+            font-size:170%;
+        }
+        nav{
+            border-radius: 25px;
+            margin: auto;
+            padding: 30px 50px;
+        }
+        .center {
+            margin: auto;
+            width: 100%;
+            padding: 10px;
+        }
+        body{
+            background-color:#FEFFDE;
         }
     </style>
 </head>
@@ -17,11 +36,9 @@
 
     <!--NAVIGATION BAR-->
     <br>
+    <center>
     <nav class="navbar navbar-light" style="background-color: #52734D;">
-    <a class="navbar-brand" href="#">Welcome back xx</a><br>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand" href="#" style="font-size: 40px;">Welcome back xx</a><br><br>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
         <a class="nav-item nav-link" href="#">Home <span class="sr-only"></span></a>
@@ -29,9 +46,14 @@
         <a class="nav-item nav-link" href="#">Recognition</a>
         <a class="nav-item nav-link" href="#">Exercises</a>
         <a class="nav-item nav-link" href="#">Timer Settings</a>
+        <a class="nav-item nav-link" href="#">Log Out</a>
         </div>
     </div>
     </nav>
+    </center>
+
+    
+
     <div class="container">
         @yield('content');
     </div>
