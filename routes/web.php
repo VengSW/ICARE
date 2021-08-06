@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//DEFAULT
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//------------------MANAGE REGISTRATION------------------------------
+//route for register account
+Route::get('/manageRegistration','ManageRegistrationController@index');
+//
