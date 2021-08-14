@@ -45,8 +45,8 @@
                 <p><i>Computer Vision Syndrome Recognition For Sitting Posture<i><p>
             </div>
 
-            <button onclick="location.href='/register'"><i>Register Now</button>
-            <button onclick="location.href='/login'"><i>Login</button>
+            <button onclick="location.href='/register'"><i>{{ __('Register Now') }}</button>
+            <button onclick="location.href='/login'"><i>{{ __('Log In') }}</button>
     </body>
 </html>
 

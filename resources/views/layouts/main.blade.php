@@ -38,7 +38,7 @@
     <br>
     <center>
     <nav class="navbar navbar-light" style="background-color: #52734D;">
-    <a class="navbar-brand" href="#" style="font-size: 40px;">Welcome back xx</a><br><br>
+    <a class="navbar-brand" href="#" style="font-size: 40px;">Welcome back </a><br><br>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
         <a class="nav-item nav-link" href="#">Home <span class="sr-only"></span></a>
@@ -46,7 +46,13 @@
         <a class="nav-item nav-link" href="#">Recognition</a>
         <a class="nav-item nav-link" href="#">Exercises</a>
         <a class="nav-item nav-link" href="#">Timer Settings</a>
-        <a class="nav-item nav-link" href="#">Log Out</a>
+        <a class="nav-item nav-link" href="{{route('logout') }}" 
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit(); alert('You have logout!!');">
+            {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
         </div>
     </div>
     </nav>
