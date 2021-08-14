@@ -45,8 +45,8 @@
                 <p><i>Computer Vision Syndrome Recognition For Sitting Posture<i><p>
             </div>
 
-            <button onclick="#"><i>Register Now</button>
-            <button onclick="#"><i>Login</button>
+            <button onclick="location.href='/register'"><i>Register Now</button>
+            <button onclick="location.href='/login'"><i>Login</button>
     </body>
 </html>
 
