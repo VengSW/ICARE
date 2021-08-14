@@ -27,6 +27,7 @@
                 }
 
                 .form-control{
+                    text-align: center;
                     padding-top: 10px;
                     padding-bottom: 10px;
                     width: 700px;
@@ -62,7 +63,7 @@
                 }
         </style>
     </head>
-    
+
 <!--HOME BUTTON-->
 <div style="text-align: right; "><strong><a href="<?php echo url('') ?>">ICARE</a></strong></div>
 

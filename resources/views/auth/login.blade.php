@@ -32,6 +32,7 @@
                     font-size: 30px;
                     background-color: #DDFFBC;
                     border: none;
+                    text-align: center;
                 }
                 ::-webkit-input-placeholder {
                     text-align: center;
@@ -47,6 +48,9 @@
                     padding: 20px 40px;
                     margin: 15px;
                     background-color: #91C788;
+                }
+                button:hover{
+                    background-color: #77a66f;
                 }
                 .btn-link{
                     color:#52734D; 
@@ -128,8 +132,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
-                                
                             </div>
                         </div>
                     </form>
@@ -138,3 +140,4 @@
         </div>
     </div>
 </div>
+            </body>
