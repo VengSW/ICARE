@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Auth;
+use App\Model\User;
+
 class LoginController extends Controller
 {
     /*
@@ -36,5 +39,13 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function loginkey(Request $request)
+    {
+        $id = $request->email; 
+        $data = user::where('email', $id)->get();
+        session(['key' => $data]);
+        $value = session('key');
     }
 }
