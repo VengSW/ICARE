@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
 
     <style>
         a{
@@ -41,11 +40,11 @@
     <a class="navbar-brand" href="#" style="font-size: 40px;">Welcome back </a><br><br>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#">Home <span class="sr-only"></span></a>
-        <a class="nav-item nav-link" href="#">Learn More!</a>
-        <a class="nav-item nav-link" href="#">Recognition</a>
-        <a class="nav-item nav-link" href="#">Exercises</a>
-        <a class="nav-item nav-link" href="#">Timer Settings</a>
+        <a class="nav-item nav-link" href="homepage">Home <span class="sr-only"></span></a>
+        <a class="nav-item nav-link" href="learnmore">Learn More</a>
+        <a class="nav-item nav-link" href="recognition">Recognition</a>
+        <a class="nav-item nav-link" href="exercise">Exercises</a>
+        <a class="nav-item nav-link" href="timer">Timer Settings</a>
         <a class="nav-item nav-link" href="{{route('logout') }}" 
             onclick="event.preventDefault(); document.getElementById('logout-form').submit(); alert('You have logout!!');">
             {{ __('Logout') }}
