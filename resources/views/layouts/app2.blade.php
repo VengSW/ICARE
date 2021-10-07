@@ -75,7 +75,7 @@
 			margin: 50px;
 			background-color: #91C788;
 			position: absolute;
-            transform: translate(-60%, -30%);
+			transform: translate(-70%, -70%);
 		}   
 		button:hover{
 			background-color: #77a66f;
@@ -83,32 +83,9 @@
 	</style>
 </head>
 <body>
-    
-
-<center>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            <strong>{{ __('A fresh verification link has been sent to your email address.') }}</strong>
-                        </div>
-                    @endif
-
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    </center>
+@csrf
+	<div class="container">
+		@yield('content')
+	</div>
 </body>
+</html>

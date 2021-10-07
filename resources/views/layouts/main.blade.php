@@ -14,12 +14,13 @@
             text-decoration: none;
         }
         a:hover{
-            font-size:170%;
+            color:white;
+            text-shadow: 3px 5px #30452d;
         }
         nav{
-            border-radius: 25px;
-            margin: auto;
-            padding: 30px 50px;
+            border-radius: 15px;
+            width: 90%;
+            padding: 10px 10px 20px 10px;
         }
         .center {
             margin: auto;
@@ -31,13 +32,12 @@
         }
     </style>
 </head>
-<body>
 
     <!--NAVIGATION BAR-->
     <br>
     <center>
     <nav class="navbar navbar-light" style="background-color: #52734D;">
-    <a class="navbar-brand" href="#" style="font-size: 40px;">Welcome back </a><br><br>
+    <!--<div class="navbar-brand" style="font-size: 40px; color: white; ">Welcome back  {{ Auth::user()->name }}</div><br><br>-->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
         <a class="nav-item nav-link" href="homepage">Home <span class="sr-only"></span></a>
@@ -60,7 +60,7 @@
     
 
     <div class="container">
-        @yield('content');
+        @yield('content')
     </div>
-</body>
+
 </html>

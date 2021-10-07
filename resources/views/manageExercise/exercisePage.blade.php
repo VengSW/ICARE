@@ -8,7 +8,8 @@
 <html>
     <style>
         .card-header{
-            font-family:forte;
+            font-family:Mongolian Baiti;
+            margin: 10px;
             text-align:center;
             font-size: 30px;
             color:#104f15;

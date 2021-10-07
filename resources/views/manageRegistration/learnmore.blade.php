@@ -5,10 +5,17 @@
     <style>
         p{
             border-radius: 25px;
-            padding: 20px 350px;
+            margin: 20px 350px;
             text-align: justify;
             font-family: Goudy Old Style;
             font-size: 25px;
+        }
+        .card-header{
+            font-family:Mongolian;
+            margin: 10px;
+            text-align:center;
+            font-size: 30px;
+            color:#104f15;
         }
     </style>
 </html>
@@ -17,8 +24,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="font-family:forte; text-align:center; font-size: 30px; color:#104f15; margin: 30px"
-                >{{ __('Learn More') }}</div>
+                <div class="card-header">{{ __('Learn More') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
