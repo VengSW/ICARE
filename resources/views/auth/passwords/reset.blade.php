@@ -1,12 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
+<center>
+    <header>
+        <title>Password Reset Interface</title>
+    </header>
+<body>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
+                <div class="card-header">{{ __('ICARE Password Reset ') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
@@ -62,4 +66,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection
