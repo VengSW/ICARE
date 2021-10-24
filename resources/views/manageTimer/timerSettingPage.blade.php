@@ -8,7 +8,7 @@
 <html lang="en">
     <head>
         <title>Timer</title>
-        <audio src="/test/audio.mp3" id="audio" controls style="display:none;" autoplay></audio>
+        <audio src="/test/audio.mp3" id="audio" controls style="display:none;" loop></audio><!--Audio file of notification sound set loop-->
     </head>
     <style>
         .card{
@@ -24,7 +24,7 @@
             box-shadow: 0 0 5px 3px #ccc;
         }
         #form{
-            height: 15vh;
+            height: 5vh;
             width: 100%;
             display: flex;
             align-items: center;
@@ -40,7 +40,7 @@
         #min, #s{
             font-size: 20px;
             padding: 10px;
-            margin: 15px;
+            margin: 5px;
             background-color: #DDFFBC;
             border: none;
             width: 100px;
@@ -53,20 +53,33 @@
             align-items: center;
             justify-content: center;
         }
+        button{
+            font-family: "Lucida Fax";
+            font-size: 10px;
+            color: white;
+            border-radius: 25px;
+            border: none;
+            padding: 10px;
+            background-color: #91C788;
+            align-items: center;
+            margin: 15px 5px;
+        }
+        button:hover{
+            background-color: #77a66f;
+        }
     </style>
     <body>
         <br>
         <div class="card">
             <div class="card-header" style="font-size: 40px; color: #263624; margin:10px;">{{ __('Timer Page') }}</div>
         </div>
-        
-        
+
         <table id="info" >
             <tr>
                 <td>Alert will be in</td>
             </tr> 
             <tr>
-            <td><span id="timer">00:00</span></td>
+                <td><span id="timer">00:00</span></td>
             </tr>   
         </table> 
 
@@ -74,9 +87,8 @@
             <input type="text" id="min" placeholder="Minutes" required>
             <input type="text" id="s" placeholder="Seconds" required>
             <button type="button" onclick="startTimer()">Start</button>
+            <button type="button" onclick="location.href='timer'">Reset</button>
         </form>
-    <button type="button" onclick="playSound()">Play</button> 
-    
 
       <!-- custom js -->
       <script>
@@ -84,22 +96,27 @@
         function startTimer(){
            var minute = document.form.min.value;
            var sec = document.form.s.value;
-           setInterval(function () {
+           var distance = minute + sec;
+           
+           const countdown = setInterval(function () {
               document.getElementById("timer").innerHTML =
               `${minute<10 ? '0' : ''}${minute}` + " : " + `${sec<10 ? '0' : ''}${sec}`;
               sec--;
               if (sec == 00) {
                  minute--;
                  sec = 60;
-                 if (minute <= 0) {
-                    alert("hello");
+                 if (minute < 0) {
+                    document.getElementById("audio").play();
+                    stopTimer();
+                    clearInterval(countdown);
                  }
               }
            }, 1000);
         };
 
-        function playSound(){
-            document.getElementById("audio").play();
+        // stop the countdown after time set has reached
+        function stopTimer() {
+            document.getElementById("timer").innerHTML = "EXPIRED";
         }
      </script>
     </body>
