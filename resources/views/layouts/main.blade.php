@@ -14,7 +14,7 @@
             text-decoration: none;
         }
         a:hover{
-            color:white;
+            color: white;
             text-shadow: 3px 5px #30452d;
         }
         nav{
@@ -37,7 +37,6 @@
     <br>
     <center>
     <nav class="navbar navbar-light" style="background-color: #52734D;">
-    <!--<div class="navbar-brand" style="font-size: 40px; color: white; ">Welcome back  {{ Auth::user()->name }}</div><br><br>-->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
         <a class="nav-item nav-link" href="homepage">Home <span class="sr-only"></span></a>
