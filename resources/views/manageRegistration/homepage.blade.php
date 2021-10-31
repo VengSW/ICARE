@@ -18,7 +18,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-            <div class="navbar-brand" style="font-size: 40px; color: #263624; ">Welcome back  {{ Auth::user()->name }}</div><br>
+            <div class="navbar-brand" style="font-size: 40px; color: #263624; ">Welcome back  {{ Auth::user()->name }}</div><br> 
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
