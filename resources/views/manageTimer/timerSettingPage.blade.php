@@ -72,6 +72,7 @@
         <br>
         <div class="card">
             <div class="card-header" style="font-size: 40px; color: #263624; margin:10px;">{{ __('Timer Page') }}</div>
+            <div style="font-size: 10px; color: #263624; margin:10px;">Recommended time duration is 20 minutes.</div>
         </div>
 
         <table id="info" >
