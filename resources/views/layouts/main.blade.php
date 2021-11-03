@@ -32,16 +32,15 @@
         }
     </style>
 </head>
-
     <!--NAVIGATION BAR-->
     <br>
     <center>
     <nav class="navbar navbar-light" style="background-color: #52734D;">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-        <a class="nav-item nav-link" href="homepage">Home <span class="sr-only"></span></a>
+        <a class="nav-item nav-link" href="home">Home <span class="sr-only"></span></a>
         <a class="nav-item nav-link" href="learnmore">Learn More</a>
-        <a class="nav-item nav-link" href="recognition">Recognition</a>
+        <a class="nav-item nav-link" href="recognition">Rec</a>
         <a class="nav-item nav-link" href="exercise">Exercises</a>
         <a class="nav-item nav-link" href="timer">Timer Settings</a>
         <a class="nav-item nav-link" href="{{route('logout') }}" 
@@ -55,8 +54,6 @@
     </div>
     </nav>
     </center>
-
-    
 
     <div class="container">
         @yield('content')
