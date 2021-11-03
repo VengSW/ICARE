@@ -18,4 +18,11 @@ class Authenticate extends Middleware
             return route('login');
         }
     }
+
+    //zongbao
+    public function getLogout(){
+        Auth::logout();
+        Session::flush();
+        return Redirect::to('/');
+    }
 }

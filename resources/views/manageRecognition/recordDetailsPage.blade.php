@@ -17,7 +17,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    {{ $data }}
                     {{ __('You are logged in!') }}
                     this is recognition page
                 </div>
