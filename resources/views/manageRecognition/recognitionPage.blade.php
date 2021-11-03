@@ -18,10 +18,16 @@
             font-size: 15px;
             color: white;
             border-color: white;
-            background-color: #5c7a57;
             justify-content: center;
         }
-        button{
+        thead{
+            background-color: #5c7a57;
+        }
+        tbody{
+            background-color: #759c6e;
+            text-align: center;
+        }
+        .main-btn{
             font-family: "Lucida Fax";
             font-size: 20px;
             color: white;
@@ -31,6 +37,17 @@
             background-color: #91C788;
             align-items: center;
             margin: 225px 5px;
+        }
+        .main-btn:hover{
+            background-color: #77a66f;
+        }
+        button{
+            font-family: "Lucida Fax";
+            font-size: 15px;
+            color: white;
+            border: none;
+            align-items: center;
+            background-color: #759c6e;
         }
         button:hover{
             background-color: #77a66f;
@@ -43,6 +60,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header" style="font-size: 40px; color: #263624; margin:10px;">{{ __('Recognition Page') }}</div>
+                    <p>This recognition page displays all the records of poor sitting posture. Users can start recognition function by pressing start button below.</p>
                 </div>
             </div>
         </div>
@@ -52,20 +70,23 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Time</th>
-                <th>Action</th>
+                <th>Date & Time</th>
+                <th colspan="2">Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach($data as $row)
-                <td>{{ $row->UserID}}</td>
+            <tr>
                 <td>{{ $row->recordID}}</td>
                 <td>{{ $row->created_at}}</td>
+                <td><button onclick="location.href='{{ route('ManageRecognition.show') }}'">View</button></td>
+                <td><button>Delete</button></td>
+            </tr>
             @endforeach
         </tbody>
     </table>
-    <button>Back</button>
-    <button onclick="location.href='/startRecognition'">Start</button>
+        <button class="main-btn" onclick="location.href='/home'">Back</button>
+        <button class="main-btn" onclick="location.href='/startRecognition'">Start</button>
     </center>
 </body>
 </html>
