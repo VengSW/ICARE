@@ -9,6 +9,7 @@ use App\Http\Controllers\ManageExerciseController;
 use App\Http\Controllers\ManageTimerController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,8 +41,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Redirect to learn more page
 Route::get('/learnmore', function () {
+    //$UserID =Auth::user();
+    //dd ($UserID);
+    
     return view('ManageRegistration/learnmore');
-});
+})->middleware(['auth']);//require login 
 
 
 /**/
@@ -50,22 +54,28 @@ Route::get('/learnmore', function () {
 /*Route::get('/recognition', function () { //works
     return view('ManageRecognition/recognitionPage');
 });*/
-Route::post('submit','App\Http\Controllers\ManageRecognitionController@create')->name('ManageRecognition.create');//Create record successfully
+Route::post('/submit','App\Http\Controllers\ManageRecognitionController@create')->name('ManageRecognition.create')->middleware(['auth']);//Create record successfully
 
+Route::get('/recognition',[ManageRecognitionController::class,'viewRecognitionPage'])->name('ManageRecognition.viewRecognitionPage');
 
+//Route::get('/recordDetailsPage',[ManageRecognitionController::class],'show')->name('ManageRecognition.show');
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<STILL WORKING ON IT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Route::get('/show', [ManageRecognitionController::class, 'show'])->name('ManageRecognition.show');
 
 Route::get('/data', [SessionController::class,'data']);
 Route::get('/try', [SessionController::class,'try']);
 Route::get('/try3', [SessionController::class,'try3']);
 Route::get('/try2/{id}',[SessionController::class,'try2']);
 
-//Route::get('/',[SessionController::class,'getLogout']);
+Route::get('/loginkey', [LoginController::class,'loginkey']);
+
+//Route::get('/',[HomeController::class,'getLogout']);
 
 
 
-Route::get('/recognition/{id}',[ManageRecognitionController::class,'show'])->name('ManageRecognition.show');
+
 
 
 
