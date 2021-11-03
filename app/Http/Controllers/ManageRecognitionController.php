@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ManageRecognitionModel;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ManageRecognitionController extends Controller
 {
@@ -31,13 +33,7 @@ class ManageRecognitionController extends Controller
         $info->Date = $req->date;
         $info->Image = $req->image;
         $info->save();
-        return view('ManageRecognition.recognitionPage');
-    }
-       
-    //VIEW ALL RECORDS
-    public function viewRecognitionPage($id){ 
-        $data = User::where('UserID',$id)->get();
-        return view('ManageRecognition.recognitionPage', compact("data"));
+        return view('home');
     }
 
     /**
@@ -57,10 +53,19 @@ class ManageRecognitionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function viewRecognitionPage()//view main recognition page
     {
-        $data = ManageRecognitionModel::where('UserID',$id)->get();
+        $UserID = Auth::user()->UserID;//authentication
+        $data = ManageRecognitionModel::where('UserID',$UserID)->get();
         return view('ManageRecognition.recognitionPage', compact("data"));
+    }
+
+    public function show(Request $req)//view record details page
+    {
+        $id = Auth::id();//get current user's id
+        $data = DB::table('records')->select('recordID');//get value for records
+        dd($data);
+        return view('ManageRecognition.recordDetailsPage', compact("data"));
     }
 
     /**
