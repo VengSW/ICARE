@@ -1,3 +1,4 @@
+<!--https://bootstrapious.com/p/bootstrap-sidebar-->
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <!-- Changed Laravel to DCRSMS --> 
+    <title>{{ config('app.name', 'ICARE') }}</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -16,6 +18,14 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
 
     <style>
         .wrapper {
@@ -115,6 +125,7 @@
             color: #fff;
             background: #ADC2A9;/*6d7fcc*/
         }
+
         ul ul a { /*dropdown content*/
             font-size: 0.9em !important;
             padding-left: 30px !important;
@@ -127,12 +138,40 @@
             font-family: "Lucida Fax";
             color: #52734D;
         }
+        
+        .header{
+            font-size: 40px;
+        }
+        
+        .main-btn{
+            font-family: 'ZCOOL XiaoWei' ;
+            font-size: 20px;
+            color: white;
+            border-radius: 35px;
+            border: none;
+            padding: 10px 70px;
+            background-color: #91C788;
+            align-items: center;
+        }
+        .main-btn:hover{
+            background-color: #77a66f;
+        }
+
+        .shadow {
+            -moz-box-shadow:    3px 3px 5px 6px #ccc;
+            -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+            box-shadow:         3px 3px 5px 6px #ccc;
+        }
+        
+        .caption{
+            font-size: 15px; 
+            color: #263624; 
+            margin:10px;
+        }
     </style>
 </head>
         
 <body>
-    
-
     <div class="wrapper">
         <!-- Sidebar -->
         <nav id="sidebar">
@@ -141,7 +180,7 @@
             </div>
     
             <ul class="list-unstyled components">
-                <p id="username" >{{ Auth::user()->name }}</p>
+                <p id="username">{{ Auth::user()->name }}</p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a> <!--data-toggle for the dropdown effect; droptown-toggle: arrow icon-->
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -165,13 +204,13 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Exercise</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="exercise">Page 1</a>
+                            <a href="exercise">Relieve & Stretching</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
+                            <a href="correctSitting">Correct Sitting Posture</a>
                         </li>
                         <li>
-                            <a href="#">Page 3</a>
+                            <a href="tips">Tips</a>
                         </li>
                     </ul>
                 </li>
@@ -181,7 +220,6 @@
                 <li>
                     <a href="timer">Timer</a>
                 </li>
-                
                 <li>
                     <a href="learnmore">About</a>
                 </li>
@@ -190,27 +228,18 @@
         
         <!--SIDE TOGGLE BUTTON-->
         <br>
-    <div id="content">
+        <div id="content">
         <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light"> -->
             <div class="container-fluid">
                 <button type="button" id="sidebarCollapse" class="btn" style="background-color: #7C9473;color: white;" >
                     <i class="fas fa-align-left"></i><!--Menu button icon-->
-                </button>
+                </button> @yield('content')
             </div>
-    </div>
-        <h2>Welcome Back!!</h2>
-        <!-- Your Content Here-->
-        <div class="container">
-            @yield('content')
+           
         </div>
     </div>
     
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
 
     <!--Script for the sidebar animation -->
     <script>
@@ -223,5 +252,4 @@
 
     
 </body>
-
 </html>
