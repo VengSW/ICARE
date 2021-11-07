@@ -115,6 +115,14 @@ Route::get('/record', function () {
 Route::get('/exercise', function () {
     return view('ManageExercise/exercisePage');
 });
+//Redirect to correct sitting page
+Route::get('/correctSitting', function () {
+    return view('ManageExercise/correctSitting');
+});
+//Redirect to tips page
+Route::get('/tips', function () {
+    return view('ManageExercise/tips');
+});
 //Redirect to timer page
 Route::get('/timer', function () {
     return view('ManageTimer/timerSettingPage');
