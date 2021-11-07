@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.nav')
 
 @section('content')
 <!DOCTYPE html>
@@ -8,12 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recognition Page</title>
+
     <style>
+        @import url('https://fonts.google.com/specimen/ZCOOL+XiaoWei?preview.text=Button&preview.text_type=custom#standard-styles');
+
         .card{
             margin: 10px 100px;
         }
         table{
-            width: 80%;
+            width: 125%;
             margin: 70px;
             font-size: 15px;
             color: white;
@@ -22,25 +25,13 @@
         }
         thead{
             background-color: #5c7a57;
+            text-align: center;
         }
         tbody{
             background-color: #759c6e;
             text-align: center;
         }
-        .main-btn{
-            font-family: "Lucida Fax";
-            font-size: 20px;
-            color: white;
-            border-radius: 15px;
-            border: none;
-            padding: 10px;
-            background-color: #91C788;
-            align-items: center;
-            margin: 225px 5px;
-        }
-        .main-btn:hover{
-            background-color: #77a66f;
-        }
+
         button{
             font-family: "Lucida Fax";
             font-size: 15px;
@@ -55,16 +46,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header" style="font-size: 40px; color: #263624; margin:10px;">{{ __('Recognition Page') }}</div>
-                    <p>This recognition page displays all the records of poor sitting posture. Users can start recognition function by pressing start button below.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h2 class="header">{{ __('Recognition Page') }}</h2>
+    <p>This recognition page displays all the records of poor sitting posture. Users can start recognition function by pressing start button below.</p>
     <center>
     <table border="1">
         <thead>
@@ -85,8 +68,8 @@
             @endforeach
         </tbody>
     </table>
-        <button class="main-btn" onclick="location.href='/home'">Back</button>
-        <button class="main-btn" onclick="location.href='/startRecognition'">Start</button>
+        <button class="main-btn float-left shadow" style="transform: translateX(500px) translateY(330px);" onclick="location.href='/home'">Back</button>
+        <button class="main-btn float-left shadow" style="transform: translateX(550px) translateY(3 30px);" onclick="location.href='/startRecognition'">Start</button>
     </center>
 </body>
 </html>
