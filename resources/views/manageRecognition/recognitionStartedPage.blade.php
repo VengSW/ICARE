@@ -21,6 +21,6 @@
             <td><input type="submit"></td>
         </tr>
     </table>
-    </center>
+    </center> 
 </form>
 @endsection
