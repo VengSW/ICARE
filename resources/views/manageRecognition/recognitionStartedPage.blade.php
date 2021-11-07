@@ -1,15 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.nav')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Recognition Started Page') }}</div>
-            </div>
-        </div>
-    </div>
-</div>
+<h2 class="header">{{ __('Recognition Started Page') }}</h2>
 <form action="submit" method="post">
     @csrf
     <center>
@@ -29,6 +21,6 @@
             <td><input type="submit"></td>
         </tr>
     </table>
-</center>
+    </center> 
 </form>
 @endsection

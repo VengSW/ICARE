@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.nav')
 
 @section('content')
 <?php	
@@ -11,9 +11,6 @@
         <audio src="/test/audio.mp3" id="audio" controls style="display:none;" loop></audio><!--Audio file of notification sound set loop-->
     </head>
     <style>
-        .card{
-            margin: 10px 100px;
-        }
         .countdowncontainer{
             position: absolute;
             transform : translateX(650px);
@@ -24,7 +21,6 @@
             box-shadow: 0 0 5px 3px #ccc;
         }
         #form{
-            height: 5vh;
             width: 100%;
             display: flex;
             align-items: center;
@@ -36,15 +32,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-left: 100px;
+            transform: translateX(380px);
         }
-        #min, #s{
+        #min{
             font-size: 20px;
-            padding: 10px;
-            margin: 5px;
-            background-color: #DDFFBC;
+            padding: 5px;
+            color: darkolivegreen;
+            background-color: #CFDAC8;
             border: none;
-            width: 100px;
+            border-radius: 15px;
             text-align: center;
+            transform : translateX(400px);
+        }
+        #s{
+            font-size: 20px;
+            padding: 5px 2px;
+            background-color: #CFDAC8;
+            border: none;
+            border-radius: 15px;
+            text-align: center;
+            transform : translateX(450px);
         }
         #timer{
             font-size: 40px;
@@ -53,27 +61,13 @@
             align-items: center;
             justify-content: center;
         }
-        button{
-            font-family: "Lucida Fax";
-            font-size: 10px;
-            color: white;
-            border-radius: 25px;
-            border: none;
-            padding: 10px;
-            background-color: #91C788;
-            align-items: center;
-            margin: 15px 5px;
-        }
-        button:hover{
-            background-color: #77a66f;
-        }
     </style>
     <body>
-        <br>
-        <div class="card">
-            <div class="card-header" style="font-size: 40px; color: #263624; margin:10px;">{{ __('Timer Page') }}</div>
-            <div style="font-size: 10px; color: #263624; margin:10px;">Recommended time duration is 20 minutes.</div>
-        </div>
+        <h2 class="header">{{ __('Timer Page') }}</h2>
+        <div class="caption">Recommended time is 20 minutes.</div>
+
+        <button type="button" class="main-btn shadow"  onclick="startTimer()">Start</button>
+        <button type="button" class="main-btn shadow"  onclick="location.href='timer'">Reset</button>
 
         <table id="info" >
             <tr>
@@ -84,13 +78,12 @@
             </tr>   
         </table> 
 
-        <form name="form" id="form">
-            <input type="text" id="min" placeholder="Minutes" required>
-            <input type="text" id="s" placeholder="Seconds" required>
-            <button type="button" onclick="startTimer()">Start</button>
-            <button type="button" onclick="location.href='timer'">Reset</button>
+        <form name="form">
+            <input type="number" id="min" placeholder="Minutes" required />
+            <input type="number" id="s" placeholder="Seconds" required />  
         </form>
-
+       
+        
       <!-- custom js -->
       <script>
         //window.onload = function () {
