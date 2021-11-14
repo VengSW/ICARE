@@ -10,15 +10,14 @@
                     color:#52734D; 
                     font-family:"Lato"; 
                     text-decoration: none;
+                    font-size: 20px;
                 }
                 .card-header{
-                    background-color: #52734D;
-                    font-size: 70px;
-                    color: white;
-                    font-family: "Lato";
-                    border-radius: 35px;
-                    width: 700px;
-                    padding-left: 20px;
+                    font-size: 50px;
+                    margin: 10px;
+                    font-family: "Lucida Fax";
+                    color: #354a32;
+                    height: 10vh;
                 }
 
                 body{
@@ -27,53 +26,57 @@
                 }
 
                 .form-control{
-                    text-align: center;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
-                    width: 700px;
-                    font-size: 30px;
-                    background-color: #DDFFBC;
+                    width: 550px;
+                    font-size: 25px;
+                    background-color: #7C9473;
                     border: none;
+                    text-align: center;
+                    border-radius:10px;
                 }
 
-                .container{
+                /* .container{
                     padding-left: 130px;
-                }
+                } */
 
                 ::-webkit-input-placeholder {
                     text-align: center;
                     font-weight: bold;
-                    color: #52734D;
+                    color: white;
                 }
 
                 button{
-                    font-family: "Lucida Fax";
-                    font-size: 25px;
+                    font-family: 'ZCOOL XiaoWei' ;
+                    font-size: 20px;
                     color: white;
-                    border-radius: 25px;
+                    border-radius: 35px;
                     border: none;
-                    padding: 30px 60px;
-                    margin: 15px;
+                    padding: 10px 70px;
                     background-color: #91C788;
-                    position: absolute;
-                    right: 0;
+                    align-items: center;
                 }
                 button:hover{
                     background-color: #77a66f;
+                }
+                .shadow {
+                    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+                    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                    box-shadow:         3px 3px 5px 6px #ccc;
                 }
         </style>
     </head>
 
 <!--HOME BUTTON-->
-<div style="text-align: right; "><strong><a href="<?php echo url('') ?>">ICARE</a></strong></div>
 
+<center>
+<div style="height:10vh;"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
 
-                <div class="card-header">{{ __('Registration Interface') }}</div><br>
+                <h1 class="card-header">{{ __('Registration Interface') }}</h1>
                 <div class="card-body">
+                    <div ><strong><a href="<?php echo url('') ?>">ICARE</a></strong></div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -87,7 +90,7 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Username">
-
+                                
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -135,15 +138,16 @@
 
                         <!--ALREADY HAS ACCOUNT-->
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4" style="text-align: right;">
+                            <div class="col-md-6 offset-md-4">
                             <a href="<?php echo url('login') ?>">Already have an account? Log in here!</a>
                             </div>
                         </div>
 
+                        <br>
                         <!--REGISTER BUTTON-->
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary shadow">
                                     {{ __('Register Now') }}
                                 </button>
                             </div>
@@ -154,3 +158,4 @@
         </div>
     </div>
 </div>
+</center>

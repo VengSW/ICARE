@@ -54,7 +54,7 @@ Route::get('/learnmore', function () {
 /*Route::get('/recognition', function () { //works
     return view('ManageRecognition/recognitionPage');
 });*/
-Route::post('/submit','App\Http\Controllers\ManageRecognitionController@create')->name('ManageRecognition.create')->middleware(['auth']);//Create record successfully
+Route::post('/submit','App\Http\Controllers\ManageRecognitionController@create')->name('ManageRecognition.create');//Create record successfully
 
 Route::get('/recognition',[ManageRecognitionController::class,'viewRecognitionPage'])->name('ManageRecognition.viewRecognitionPage');
 
@@ -89,16 +89,7 @@ Route::get('/ManageRecognition/viewRecognitionPage/{id}','App\Http\Controllers\M
 //redirect to recognition started page
 Route::get('/startRecognition', function () {//works
     return view('manageRecognition/recognitionStartedPage');
-});
-
-
-
-
-
-
-
-
-
+})->middleware(['auth']);
 
 
 
@@ -110,23 +101,23 @@ Route::get('/startRecognition', function () {//works
 //Redirect to record details page
 Route::get('/record', function () {
     return view('ManageRecognition/recordDetailsPage');
-});
+})->middleware(['auth']);
 //Redirect to exercises page
 Route::get('/exercise', function () {
     return view('ManageExercise/exercisePage');
-});
+})->middleware(['auth']);
 //Redirect to correct sitting page
 Route::get('/correctSitting', function () {
     return view('ManageExercise/correctSitting');
-});
+})->middleware(['auth']);
 //Redirect to tips page
 Route::get('/tips', function () {
     return view('ManageExercise/tips');
-});
+})->middleware(['auth']);
 //Redirect to timer page
 Route::get('/timer', function () {
     return view('ManageTimer/timerSettingPage');
-});
+})->middleware(['auth']);
 
 Auth::routes();
 

@@ -139,6 +139,11 @@
             color: #52734D;
         }
         
+        h4{
+            text-align: center;
+            font-family: 'ZCOOL XiaoWei' ;
+        }
+
         .header{
             font-size: 40px;
         }
@@ -177,16 +182,17 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>ICARE</h3>
+                <img id="logo" src="/images/icare2.png" alt="logo" width="100" height="100">
             </div>
     
             <ul class="list-unstyled components">
-                <p id="username">{{ Auth::user()->name }}</p>
+                <h4 id="username">{{ Auth::user()->name }}</h4>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a> <!--data-toggle for the dropdown effect; droptown-toggle: arrow icon-->
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
+                        <!-- <li>
                             <a href="#">Profile</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="home">Home</a>
                         </li>

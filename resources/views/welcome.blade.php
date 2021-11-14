@@ -7,12 +7,10 @@
         <title>ICARE</title>
         <style>
                 h1{
-                    background-color: #52734D;
+                    margin: 10px;
+                    font-family: "Lucida Fax";
+                    color: #52734D;
                     font-size: 50px;
-                    color: white;
-                    font-family: "Lato";
-                    border-radius: 35px;
-                    width: 350px;
                 }
                 body{
                     padding-top: 100px;
@@ -25,25 +23,32 @@
                     font-size: 25px;
                 }
                 button{
-                    font-family: "Lucida Fax";
-                    font-size: 25px;
+                    font-family: 'ZCOOL XiaoWei' ;
+                    font-size: 20px;
                     color: white;
-                    border-radius: 25px;
+                    border-radius: 35px;
                     border: none;
-                    padding: 20px 40px;
-                    margin: 15px;
+                    padding: 10px 70px;
                     background-color: #91C788;
+                    align-items: center;
                 }
                 button:hover{
                     background-color: #77a66f;
+                }
+                
+                .shadow {
+                    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+                    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                    box-shadow:         3px 3px 5px 6px #ccc;
                 }
         </style>
     </head>
 
     <body>
         <center>
+            <div style="height: 10vh;"></div>
             <h1>Welcome to</h1>
-            <div>
+            <div style="height: 20vh;">
                 ICARE
                 <p><i>Computer Vision Syndrome Recognition For Sitting Posture<i><p>
             </div>

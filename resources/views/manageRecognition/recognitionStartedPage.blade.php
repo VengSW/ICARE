@@ -7,7 +7,7 @@
     <center>
     <table>
         <input type="hidden" name="recordid" >
-        <input type="hidden" name="userid" value="1000">
+        <input type="hidden" name="userid" value="{{ Auth::user()->UserID }}">
         <tr>
             <td><input type="date" name="date" placeholder="date" ></td>
         </tr>
