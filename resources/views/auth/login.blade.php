@@ -10,12 +10,10 @@
                     text-decoration: none;
                 }
                 h1{
-                    background-color: #52734D;
                     font-size: 50px;
-                    color: white;
-                    font-family: "Lato";
-                    border-radius: 35px;
-                    width: 350px;
+                    margin: 10px;
+                    font-family: "Lucida Fax";
+                    color: #354a32;
                 }
                 body{
                     padding-top: 100px;
@@ -29,28 +27,34 @@
                 }
                 .form-control{
                     width: 550px;
-                    font-size: 30px;
-                    background-color: #DDFFBC;
+                    font-size: 25px;
+                    background-color: #7C9473;
                     border: none;
                     text-align: center;
+                    border-radius:10px;
                 }
                 ::-webkit-input-placeholder {
                     text-align: center;
-                    font-weight: bold;
-                    color: #52734D;
+                    /* color: #52734D; */
+                    color:white;
                 }
                 button{
-                    font-family: "Lucida Fax";
-                    font-size: 25px;
+                    font-family: 'ZCOOL XiaoWei' ;
+                    font-size: 20px;
                     color: white;
-                    border-radius: 25px;
+                    border-radius: 35px;
                     border: none;
-                    padding: 20px 40px;
-                    margin: 15px;
+                    padding: 10px 70px;
                     background-color: #91C788;
+                    align-items: center;
                 }
                 button:hover{
                     background-color: #77a66f;
+                }
+                .shadow {
+                    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+                    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                    box-shadow:         3px 3px 5px 6px #ccc;
                 }
                 .btn-link{
                     color:#52734D; 
@@ -119,7 +123,7 @@
                         </div>-->
 
 <!--FORGET PASSWORD BUTTON-->
-                        <div>
+                        <div style="height:10vh">
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
