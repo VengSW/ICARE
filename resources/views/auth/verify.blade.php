@@ -80,6 +80,11 @@
 		button:hover{
 			background-color: #77a66f;
 		}
+		.shadow {
+			-moz-box-shadow:    3px 3px 5px 6px #ccc;
+			-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+			box-shadow:         3px 3px 5px 6px #ccc;
+		}
 	</style>
 </head>
 <body>
