@@ -69,7 +69,7 @@
         </tbody>
     </table>
         <button class="main-btn float-left shadow" style="transform: translateX(500px) translateY(330px);" onclick="location.href='/home'">Back</button>
-        <button class="main-btn float-left shadow" style="transform: translateX(550px) translateY(3 30px);" onclick="location.href='/startRecognition'">Start</button>
+        <button class="main-btn float-left shadow" style="transform: translateX(550px) translateY(330px);" onclick="location.href='/startRecognition'">Start</button>
     </center>
 </body>
 </html>
