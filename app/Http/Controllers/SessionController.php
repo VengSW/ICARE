@@ -43,7 +43,7 @@ class SessionController extends Controller
      public function try2($id) {
 
         $data2 = user::where('UserID', $id)->get();
-        return view('about',compact("data2"));
+        return view('try',compact("data2"));
      }
 
      public function try3(Request $req) {
