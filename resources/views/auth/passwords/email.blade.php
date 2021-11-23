@@ -7,61 +7,68 @@
         <title>Login Page</title>
         <style>
                 a{
+                    color:#52734D; 
+                    font-family:"Lato"; 
                     text-decoration: none;
+                    font-size: 20px;
                 }
                 h1{
-                    background-color: #52734D;
                     font-size: 50px;
-                    color: white;
-                    font-family: "Lato";
-                    border-radius: 35px;
-                    width: 350px;
+                    margin: 10px;
+                    font-family: "Lucida Fax";
+                    color: #354a32;
+                    height: 10vh;
                 }
+
                 body{
-                    padding-top: 100px;
+                    padding-top: 20px;
                     background-color: #FEFFDE;
                 }
-                div{
-                    font-size: 30px;
-                }
-                p{
-                    font-size: 25px;
-                }
+
                 .form-control{
                     width: 550px;
-                    font-size: 30px;
-                    background-color: #DDFFBC;
+                    font-size: 25px;
+                    background-color: #7C9473;
                     border: none;
+                    text-align: center;
+                    border-radius:10px;
                 }
+
+                /* .container{
+                    padding-left: 130px;
+                } */
+
                 ::-webkit-input-placeholder {
                     text-align: center;
                     font-weight: bold;
-                    color: #52734D;
-                }
-                button{
-                    font-family: "Lucida Fax";
-                    font-size: 25px;
                     color: white;
-                    border-radius: 25px;
+                }
+
+                button{
+                    font-family: 'ZCOOL XiaoWei' ;
+                    font-size: 20px;
+                    color: white;
+                    border-radius: 35px;
                     border: none;
-                    padding: 20px 40px;
-                    margin: 15px;
+                    padding: 10px 70px;
                     background-color: #91C788;
+                    align-items: center;
                 }
                 button:hover{
                     background-color: #77a66f;
                 }
-                .btn-link{
-                    color:#52734D; 
-                    font-size: 15px;
-                    font-family:"Lato"; 
-                    text-decoration: none;
+                .shadow {
+                    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+                    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                    box-shadow:         3px 3px 5px 6px #ccc;
                 }
+        </style>
         </style>
     </head>
 <body>
     <center>
-    <h1>Welcome to</h1>
+    <div style="height:20vh;"></div>
+    <h1>Password Reset</h1>
         <div>
             <a href="<?php echo url('') ?>">ICARE</a>
             <p><i>Computer Vision Syndrome Recognition For Sitting Posture<i><p>
@@ -94,10 +101,10 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <div style="height:5vh;"></div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary shadow">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
