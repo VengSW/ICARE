@@ -210,7 +210,7 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Exercise</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="exercise">Relieve & Stretching</a>
+                            <a href="exercise">Exercise & Stretching</a>
                         </li>
                         <li>
                             <a href="correctSitting">Correct Sitting Posture</a>
@@ -227,7 +227,7 @@
                     <a href="timer">Timer</a>
                 </li>
                 <li>
-                    <a href="learnmore">About</a>
+                    <a href="about">About</a>
                 </li>
             </ul>
         </nav>
