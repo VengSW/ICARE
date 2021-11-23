@@ -48,6 +48,10 @@
 <body>
     <h2 class="header">{{ __('Recognition Page') }}</h2>
     <p>This recognition page displays all the records of poor sitting posture. Users can start recognition function by pressing start button below.</p>
+    <p>@if(session()->get('msj'))
+            {{ session()->get('msj') }}  
+        @endif
+    </p>
     <center>
     <table border="1">
         <thead>
@@ -62,8 +66,8 @@
             <tr>
                 <td>{{ $row->recordID}}</td>
                 <td>{{ $row->created_at}}</td>
-                <td><button onclick="location.href='{{ route('ManageRecognition.show') }}'">View</button></td>
-                <td><button>Delete</button></td>
+                <td><a href="/show/{{ $row->recordID }}'">View</a></td>
+                <td><a href="/destroy/{{ $row->recordID }}'">Delete</a></td>
             </tr>
             @endforeach
         </tbody>

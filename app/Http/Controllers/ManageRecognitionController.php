@@ -33,7 +33,7 @@ class ManageRecognitionController extends Controller
         $info->Date = $req->date;
         $info->Image = $req->image;
         $info->save();
-        return view('home');
+        return redirect()->back();
     }
 
     /**
@@ -60,11 +60,14 @@ class ManageRecognitionController extends Controller
         return view('ManageRecognition.recognitionPage', compact("data"));
     }
 
-    public function show(Request $req)//view record details page
+    public function show(Request $req,$recordID)//view record details page
     {
         $id = Auth::id();//get current user's id
-        $data = DB::table('records')->select('recordID');//get value for records
-        dd($data);
+        $data = ManageRecognitionModel::find($recordID);//find record id
+        $this->recordID = $data->recordID;//found record id
+
+        //$data2 = ManageRecognitionModel::select("SELECT * FROM records WHERE recordID = 'recordID' ");//get value for records
+        //dd($recordID);
         return view('ManageRecognition.recordDetailsPage', compact("data"));
     }
 
@@ -97,8 +100,16 @@ class ManageRecognitionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($recordID)
     {
-        //
+        $id = Auth::id();//get current user's id
+        $data = ManageRecognitionModel::find($recordID);//find record id
+        $this->recordID = $data->recordID;//found record id
+
+        $data->delete();
+        $message = "Request is successful deleted.";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        
+        return redirect()->back()->with('msj', 'Record is Deleted');
     }
 }

@@ -30,7 +30,7 @@ Auth::routes(['verify' => true]);//verification mail
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//----------------------------------------------------------------------------MANAGE REGISTRATION------------------------------
+//----------------------------------------------------------------------------MANAGE REGISTRATION--------------------------------------------------------------------------------
 //route for register account
 
 
@@ -39,69 +39,61 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     return view('ManageRegistration/homepage');
 });*/
 
-//Redirect to learn more page
-Route::get('/learnmore', function () {
+//Redirect to  about page
+Route::get('/about', function () {
     //$UserID =Auth::user();
     //dd ($UserID);
     
-    return view('ManageRegistration/learnmore');
+    return view('ManageRegistration/about');
 })->middleware(['auth']);//require login 
 
 
 /**/
-//------------------------------------------------------------------------------MANAGE RECOGNITION------------------------------------------------------------------------
+//------------------------------------------------------------------------------MANAGE RECOGNITION------------------------------------------------------------------------------------
 //Redirect to recognition page successfully
 /*Route::get('/recognition', function () { //works
     return view('ManageRecognition/recognitionPage');
 });*/
-Route::post('/submit','App\Http\Controllers\ManageRecognitionController@create')->name('ManageRecognition.create');//Create record successfully
-
-Route::get('/recognition',[ManageRecognitionController::class,'viewRecognitionPage'])->name('ManageRecognition.viewRecognitionPage');
-
-//Route::get('/recordDetailsPage',[ManageRecognitionController::class],'show')->name('ManageRecognition.show');
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<STILL WORKING ON IT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-Route::get('/show', [ManageRecognitionController::class, 'show'])->name('ManageRecognition.show');
-
-Route::get('/data', [SessionController::class,'data']);
-Route::get('/try', [SessionController::class,'try']);
-Route::get('/try3', [SessionController::class,'try3']);
-Route::get('/try2/{id}',[SessionController::class,'try2']);
-
-Route::get('/loginkey', [LoginController::class,'loginkey']);
-
-//Route::get('/',[HomeController::class,'getLogout']);
-
-
-
-
-
-
-
-
-
-//test view recognition page with viewRecognitionPage()
-Route::get('/ManageRecognition/viewRecognitionPage/{id}','App\Http\Controllers\ManageRecognitionController@viewRecognitionPage')->name('ManageRecognition.viewRecognitionPage');//missing parameter
-
-
+Route::post('/submit','App\Http\Controllers\ManageRecognitionController@create')->name('ManageRecognition.create')->middleware(['auth']);//Create record successfully
 
 //redirect to recognition started page
 Route::get('/startRecognition', function () {//works
     return view('manageRecognition/recognitionStartedPage');
 })->middleware(['auth']);
 
+Route::get('/recognition',[ManageRecognitionController::class,'viewRecognitionPage'])->name('ManageRecognition.viewRecognitionPage')->middleware(['auth']); //view recognition page
+
+Route::get('/show/{recordID}', [ManageRecognitionController::class, 'show'])->name('ManageRecognition.show')->middleware(['auth']);//View record details
+
+Route::get('/destroy/{recordID}', [ManageRecognitionController::class, 'destroy'])->name('ManageRecognition.destroy')->middleware(['auth']);// Delete record details
 
 
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<STILL WORKING ON IT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+Route::get('/loginkey', [LoginController::class,'loginkey']);
+
+//Route::get('/',[HomeController::class,'getLogout']);
+
+
+//test view recognition page with viewRecognitionPage()
+//Route::get('/ManageRecognition/viewRecognitionPage/{id}','App\Http\Controllers\ManageRecognitionController@viewRecognitionPage')->name('ManageRecognition.viewRecognitionPage');//missing parameter
+
+
+
+
+
+//Redirect to record details page
+Route::get('/record', function () {
+    return view('ManageRecognition/recordDetailsPage');
+})->middleware(['auth']);
 
 
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Redirect to record details page
-Route::get('/record', function () {
-    return view('ManageRecognition/recordDetailsPage');
-})->middleware(['auth']);
+
 //Redirect to exercises page
 Route::get('/exercise', function () {
     return view('ManageExercise/exercisePage');
