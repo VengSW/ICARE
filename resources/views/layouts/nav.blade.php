@@ -181,12 +181,12 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>ICARE</h3>
-                <img id="logo" src="/images/icare2.png" alt="logo" width="100" height="100">
+                <h3 id="username">{{ Auth::user()->name }}</h3>
+                <img id="logo" src="/images/vector.png" name="picture" alt="logo" width="100" height="100">
             </div>
     
             <ul class="list-unstyled components">
-                <h4 id="username">{{ Auth::user()->name }}</h4>
+                <h4>ICARE</h4>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a> <!--data-toggle for the dropdown effect; droptown-toggle: arrow icon-->
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -241,7 +241,6 @@
                     <i class="fas fa-align-left"></i><!--Menu button icon-->
                 </button> @yield('content')
             </div>
-           
         </div>
     </div>
     
