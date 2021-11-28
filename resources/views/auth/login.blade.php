@@ -73,6 +73,10 @@
             <p><i>Computer Vision Syndrome Recognition For Sitting Posture<i><p>
             </div>
 
+            <p>@if(session()->get('global'))
+                {{ session()->get('global') }}  
+            <br></p>
+            @endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
