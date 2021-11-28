@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2 class="header">{{ __('Exercises and Streching Videos') }}</h2>
+<h2 class="header" style="transform: translateX(450px);">{{ __('Exercises and Streching Videos') }}</h2>
 
 
 <body>

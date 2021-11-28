@@ -33,7 +33,7 @@
             align-items: center;
             justify-content: center;
             margin-left: 100px;
-            transform: translateX(380px);
+            transform: translateX(500px);
         }
         #min{
             font-size: 20px;
@@ -43,7 +43,7 @@
             border: none;
             border-radius: 15px;
             text-align: center;
-            transform : translateX(400px);
+            transform : translateX(520px);
         }
         #s{
             font-size: 20px;
@@ -52,7 +52,7 @@
             border: none;
             border-radius: 15px;
             text-align: center;
-            transform : translateX(450px);
+            transform : translateX(550px);
         }
         #timer{
             font-size: 40px;
@@ -63,16 +63,21 @@
         }
     </style>
     <body>
-        <h2 class="header">{{ __('Timer Page') }}</h2>
-        <div class="caption">Recommended time is 20 minutes.</div>
+        <h2 class="header" style="transform: translateX(680px);">{{ __('Timer Page') }}</h2>
+        <div class="caption" style="transform: translateX(660px);">Recommended time is 20 minutes.</div>
 
-        <button type="button" class="main-btn shadow"  onclick="startTimer()">Start</button>
-        <button type="button" class="main-btn shadow"  onclick="location.href='timer'">Reset</button>
+        
 
         <table id="info" >
             <tr>
                 <td>Alert will be in</td>
             </tr> 
+            <!-- <tr>
+                <td >
+                <button type="button" class="main-btn " style="transform: translateX(480px) translateY(40px);" onclick="startTimer()">Start</button>
+                <button type="button" class="main-btn " style="transform: translateX(430px) translateY(40px);" onclick="location.href='timer'">Reset</button>
+                </td>
+            </tr> -->
             <tr>
                 <td><span id="timer">00:00</span></td>
             </tr>   
@@ -83,6 +88,8 @@
             <input type="number" id="s" placeholder="Seconds" required />  
         </form>
        
+        <button type="button" class="main-btn " style="transform: translateX(640px) translateY(40px);" onclick="startTimer()">Start</button>
+                <button type="button" class="main-btn " style="transform: translateX(590px) translateY(40px);" onclick="location.href='timer'">Reset</button>
         
       <!-- custom js -->
       <script>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2 class="header">{{ __('How to Sit Correctly') }}</h2>
+<h2 class="header" style="transform: translateX(570px);">{{ __('How to Sit Correctly') }}</h2>
 
 
 <body>

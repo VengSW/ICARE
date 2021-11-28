@@ -5,6 +5,7 @@ use Illuminate\Support\Fascades\Mail;
 use Illuminate\Support\Fascades\Session;
 
 use App\Http\Controllers\ManageRecognitionController;
+use App\Http\Controllers\ManageRegistrationController;
 use App\Http\Controllers\ManageExerciseController;
 use App\Http\Controllers\ManageTimerController;
 use App\Http\Controllers\Auth\LoginController;
@@ -47,6 +48,8 @@ Route::get('/about', function () {
     return view('ManageRegistration/about');
 })->middleware(['auth']);//require login 
 
+Route::get('/updateName',[ManageRegistrationController::class,'updateName']);
+Route::get('/deleteAccount',[ManageRegistrationController::class,'deleteAccount']);
 
 /**/
 //------------------------------------------------------------------------------MANAGE RECOGNITION------------------------------------------------------------------------------------

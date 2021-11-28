@@ -22,6 +22,7 @@
             color: white;
             border-color: white;
             justify-content: center;
+            transform: translateX(150px);"
         }
         thead{
             background-color: #5c7a57;
@@ -46,14 +47,10 @@
     </style>
 </head>
 <body>
-    <h2 class="header">{{ __('Recognition Page') }}</h2>
-    <p>This recognition page displays all the records of poor sitting posture. Users can start recognition function by pressing start button below.</p>
-    <p>@if(session()->get('msj'))
-            {{ session()->get('msj') }}  
-        @endif
-    </p>
+    <h2 class="header" style="transform: translateX(650px);">{{ __('Recognition Page') }}</h2>
+    <p style="transform: translateX(220px);">This recognition page displays all the records of poor sitting posture. Users can start recognition function by pressing start button below.</p>
     <center>
-    <table border="1">
+    <table border="1" >
         <thead>
             <tr>
                 <th>No.</th>
@@ -72,8 +69,8 @@
             @endforeach
         </tbody>
     </table>
-        <button class="main-btn float-left shadow" style="transform: translateX(500px) translateY(330px);" onclick="location.href='/home'">Back</button>
-        <button class="main-btn float-left shadow" style="transform: translateX(550px) translateY(330px);" onclick="location.href='/startRecognition'">Start</button>
+        <button class="main-btn float-left shadow" style="transform: translateX(630px) translateY(330px);" onclick="location.href='/home'">Back</button>
+        <button class="main-btn float-left shadow" style="transform: translateX(680px) translateY(330px);" onclick="window.open('http://127.0.0.1:5000/')">Start</button>
     </center>
 </body>
 </html>

@@ -82,6 +82,9 @@
 
                         <br>
                         <div style="font-size: 15px;"><i>Please fill in the form below.</div>
+                        <div style="font-size: 15px;"><i>Password must have numbers and symbol letters.</div>
+                        <div style="font-size: 15px;"><i>Password must have lower and upper capital letters.</div>
+                        <div style="font-size: 15px;"><i>Password must be at least 8 characters of combination mentioned above.</div>
                         <br>
 
                         <!--USERNAME SLOT
