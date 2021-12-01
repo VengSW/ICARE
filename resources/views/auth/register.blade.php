@@ -141,10 +141,10 @@
                         <br>
 
                         <!-- Profile Picture -->
-                            <div style="transform: translateX(20px);">
+                            <!-- <div style="transform: translateX(20px);">
                                 Profile Picture:
                                 <input type="file" name="picture">
-                            </div> <br>
+                            </div> <br> -->
 
                         <!--ALREADY HAS ACCOUNT-->
                         <div class="form-group row mb-0">

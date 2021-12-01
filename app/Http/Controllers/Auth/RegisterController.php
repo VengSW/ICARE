@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed','regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/'],
-            'picture' => ['required', 'image' , 'mimes:jpeg,png,jpg', 'max:5048'],
+            // 'picture' => ['required', 'string'],
         ]);
     }
 
@@ -70,18 +70,12 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'picture' => $data['picture'],
         ]);
-
-        $picture = $data['picture'];
-        $newpicture = time().'.'. $picture->getClientOriginalExtension();
-        $picture->move(public_path('images/profile'), $newpicture);
 
         Session::push('users',[
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $data['password'],
-            'picture' => $newpicture,
         ]);
         return $user;
     }
