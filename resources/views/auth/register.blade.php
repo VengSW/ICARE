@@ -10,7 +10,7 @@
                     color:#52734D; 
                     font-family:"Lato"; 
                     text-decoration: none;
-                    font-size: 20px;
+                    font-size: 25px;
                 }
                 .card-header{
                     font-size: 50px;
@@ -77,14 +77,15 @@
                 <h1 class="card-header">{{ __('Registration Interface') }}</h1>
                 <div class="card-body">
                     <div ><strong><a href="<?php echo url('') ?>">ICARE</a></strong></div>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <br>
-                        <div style="font-size: 15px;"><i>Please fill in the form below.</div>
-                        <div style="font-size: 15px;"><i>Password must have numbers and symbol letters.</div>
-                        <div style="font-size: 15px;"><i>Password must have lower and upper capital letters.</div>
-                        <div style="font-size: 15px;"><i>Password must be at least 8 characters of combination mentioned above.</div>
+                        <div style="font-size: 25px;"><i>Please fill in the form below.</div>
+                        <br>
+                        <div style="font-size: 15px; transform: translateX(-120px);">- Password must have numbers and symbol letters.</div>
+                        <div style="font-size: 15px;transform: translateX(-110px)">- Password must have lower and upper capital letters.</div>
+                        <div style="font-size: 15px;transform: translateX(-50px)">- Password must be at least 8 characters of combination mentioned above.</div>
                         <br>
 
                         <!--USERNAME SLOT
@@ -138,6 +139,12 @@
                             </div>
                         </div>
                         <br>
+
+                        <!-- Profile Picture -->
+                            <div style="transform: translateX(20px);">
+                                Profile Picture:
+                                <input type="file" name="picture">
+                            </div> <br>
 
                         <!--ALREADY HAS ACCOUNT-->
                         <div class="form-group row mb-0">

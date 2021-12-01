@@ -23,7 +23,7 @@ class ManageRegistrationController extends Controller
         return back()->with('success','Profile Updated');
     }
 
-    public function updatePic(Request $request){
+    public function store(Request $request){
         $user = Auth::user();
         $user->name = $request['picture'];
         $user->save();
@@ -35,5 +35,16 @@ class ManageRegistrationController extends Controller
         $data = User::find($user);
         $data->delete();
         return back()->with('success', 'Account deleted!');
+    }
+
+    public function updatePic(Request $req){
+        $req->validate([
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $newpicture = time().'-'.$req->picture . '.'.$req->picture->extension();
+        $req->image->move(public_path('images/profile'), $newpicture);
+        return back()
+            ->with('success','You have successfully upload image.')
+            ->with('picture',$newpicture);
     }
 }
