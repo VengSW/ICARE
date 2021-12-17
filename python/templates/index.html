@@ -57,7 +57,7 @@
             .caption{
                 font-size: 15px; 
                 color: #263624; 
-                margin:10px;
+                margin:15px;
                 text-align: justify;
             }
 
@@ -72,12 +72,9 @@
                 <div class="col-lg-8  offset-lg-2">
                     <h2 class="mt-5 header">Recognition Page</h2>
                     <div class="caption">
-                        <article>
-                            <p>The recognition has started! The system will record your sitting posture. 
-                                If your sitting posture is recognized as poor, your sitting posture will be recorded as jpg in the system.
-                                You can view the image saved in the main recognition page.
-                            </p>
-                        </article>
+                        <p>The recognition has started! The system will capture your sitting posture.
+                            If your sitting posture is recognized as poor, the system will stop at the frame when poor posture is recognized.
+                            The system will notify you with an alert sound too!</p>
                     </div>
                     <img src="{{ url_for('video_feed') }}" width="100%">
                 </div>
