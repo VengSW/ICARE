@@ -48,9 +48,12 @@
 </head>
 <body>
     <h2 class="header" style="transform: translateX(650px);">{{ __('Recognition Page') }}</h2>
-    <p style="transform: translateX(220px);">This recognition page displays all the records of poor sitting posture. Users can start recognition function by pressing start button below.</p>
+    <div >
+        <article style="transform: translateX(560px);">Users can start recognition function by clicking the start button</article>
+        <p style="transform: translateX(400px);">By clicking start button, user is allowing the system to access the camera for posture recognition purpose.</p>
+    </div>
     <center>
-    <table border="1" >
+    <!-- <table border="1" >
         <thead>
             <tr>
                 <th>No.</th>
@@ -68,9 +71,9 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
-        <button class="main-btn float-left shadow" style="transform: translateX(630px) translateY(330px);" onclick="location.href='/home'">Back</button>
-        <button class="main-btn float-left shadow" style="transform: translateX(680px) translateY(330px);" onclick="window.open('http://127.0.0.1:5000/')">Start</button>
+    </table> -->
+        <!-- <button class="main-btn float-left shadow" style="transform: translateX(630px) translateY(330px);" onclick="location.href='/home'">Back</button> -->
+        <button class="main-btn float-left shadow" style="transform: translateX(720px) translateY(130px);" onclick="window.open('http://127.0.0.1:5000/')">Start</button>
     </center>
 </body>
 </html>

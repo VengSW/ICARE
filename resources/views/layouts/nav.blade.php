@@ -182,7 +182,7 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3 id="username">{{ Auth::user()->name }}</h3>
-                <img id="logo" src="/images/vector.png" name="picture" alt="logo" width="100" height="100">
+                <img id="logo" src="images/profile/{{ Auth::user()->picture }}" name="picture" alt="logo" width="100" height="100">
             </div>
     
             <ul class="list-unstyled components">

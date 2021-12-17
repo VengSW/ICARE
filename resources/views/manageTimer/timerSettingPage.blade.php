@@ -8,7 +8,7 @@
 <html lang="en">
     <head>
         <title>Timer</title>
-        <audio src="/test/audio.mp3" id="audio" controls style="display:none;" loop></audio><!--Audio file of notification sound set loop-->
+        <audio src="/test/bell.wav" id="audio" controls style="display:none;" loop></audio><!--Audio file of notification sound set loop-->
     </head>
     <style>
         .countdowncontainer{
@@ -33,7 +33,7 @@
             align-items: center;
             justify-content: center;
             margin-left: 100px;
-            transform: translateX(500px);
+            transform: translateX(330px);
         }
         #min{
             font-size: 20px;
@@ -64,7 +64,11 @@
     </style>
     <body>
         <h2 class="header" style="transform: translateX(680px);">{{ __('Timer Page') }}</h2>
-        <div class="caption" style="transform: translateX(660px);">Recommended time is 20 minutes.</div>
+        <div class="caption" style="transform: translateX(660px);">Recommended time is 20-30 minutes.</div>
+        <div class="caption" style="transform: translateX(460px);">The range of time is suitable for the eyes and body to rest for not too long or too short.
+           <i style="color: green;"><a href="https://medium.com/@airawear/prolonged-sitting-how-long-should-you-sit-for-before-your-back-hurts-c1cae9a8f4af">Click here for more!</a></i>
+        </div>
+        
 
         
 

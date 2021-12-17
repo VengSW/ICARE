@@ -55,17 +55,19 @@
                     <div class="card-body">
                         <table>
                             <tr colspan="3">
-                                <form action="/updateName" action="POST">
+                                <form action="/updateName" method="POST">
+                                    @csrf
                                     <td>Username:</td>
                                     <td><input type="text" name="name" value="{{ Auth::user()->name }}" style="border:none;;background-color:#7C9473;"></td>
                                     <td><button>Edit Name</button></td>
                                 </form>
                             </tr>
                             <tr colspan="3">
-                                <form action="/updatePic" action="POST">
+                                <form action="/updatePic" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                     <td>Profile Picture</td>
-                                    <td><input type="file" name="picture"></td>
-                                    <td><button type="submit">Upload Image</button></td>
+                                    <td><input type="file" name="picture" id="picture" required></td>
+                                    <td><button>Upload Image</button></td>
                                 </form>
                             </tr>
                             <tr colspan="3">

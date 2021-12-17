@@ -41,16 +41,30 @@
                     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
                     box-shadow:         3px 3px 5px 6px #ccc;
                 }
+
+                /* .admin{
+                    margin-right: 0;
+                } */
+                a{
+                    font-size: 20px;
+                    text-decoration:none;
+                    float: right;
+                }
+                a:visited{
+                    color: #094711;
+                }
         </style>
     </head>
 
     <body>
+    <div class="admin"><a href="/adminLogin">Admin</a></div>
         <center>
             <div style="height: 10vh;"></div>
             <h1>Welcome to</h1>
             <div style="height: 20vh;">
                 ICARE
                 <p><i>Computer Vision Syndrome Recognition For Sitting Posture<i><p>
+                    
             </div>
             <button onclick="location.href='/register'"><i>{{ __('Register Now') }}</button>
             <button onclick="location.href='/login'"><i>{{ __('Log In') }}</button>
