@@ -9,6 +9,7 @@ use App\Http\Controllers\ManageRegistrationController;
 use App\Http\Controllers\ManageExerciseController;
 use App\Http\Controllers\ManageTimerController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\HomeController;
 /*
@@ -31,6 +32,14 @@ Auth::routes(['verify' => true]);//verification mail
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//admin
+Route::get('/adminLogin',[App\Http\Controllers\adminController::class,'loginpage']);//display admin login page
+Route::get('/adminReg', function () {return view('\admin\adminRegister');});//display admin form
+Route::post('/adminCreate','App\Http\Controllers\adminController@create');//create admin account
+Route::post('/adlogin', [App\Http\Controllers\Auth\LoginController::class,'adminLogin']); //login function
+Route::get('/adhome',[App\Http\Controllers\adminController::class,'index']);//list all users
+
+
 //----------------------------------------------------------------------------MANAGE REGISTRATION--------------------------------------------------------------------------------
 //route for register account
 
@@ -48,8 +57,9 @@ Route::get('/about', function () {
     return view('ManageRegistration/about');
 })->middleware(['auth']);//require login 
 
-Route::get('/updateName',[ManageRegistrationController::class,'updateName']);
+Route::post('/updateName',[ManageRegistrationController::class,'updateName']);
 Route::get('/deleteAccount',[ManageRegistrationController::class,'deleteAccount']);
+Route::post('/updatePic',[ManageRegistrationController::class,'updatePic']);
 
 /**/
 //------------------------------------------------------------------------------MANAGE RECOGNITION------------------------------------------------------------------------------------

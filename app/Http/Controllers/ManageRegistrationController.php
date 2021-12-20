@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class ManageRegistrationController extends Controller
 {
@@ -25,7 +27,8 @@ class ManageRegistrationController extends Controller
 
     public function store(Request $request){
         $user = Auth::user();
-        $user->name = $request['picture'];
+        $user->picture = $request['picture'];
+        dd($user->picture);
         $user->save();
         return back()->with('success','Profile Updated');
     }
@@ -38,11 +41,15 @@ class ManageRegistrationController extends Controller
     }
 
     public function updatePic(Request $req){
-        $req->validate([
-            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $newpicture = time().'-'.$req->picture . '.'.$req->picture->extension();
-        $req->image->move(public_path('images/profile'), $newpicture);
+        // $img = Auth::user()->picture; //default image
+        $user = Auth::user(); 
+        $picture = $req->file('picture');
+        // dd($picture);
+        $newpicture = time().'.'. $picture->getClientOriginalExtension();
+        $picture->move(public_path('images/profile'), $newpicture);
+        $user->update(['picture' => $newpicture]);
+
+        
         return back()
             ->with('success','You have successfully upload image.')
             ->with('picture',$newpicture);

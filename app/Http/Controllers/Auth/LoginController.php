@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User;
+use App\Models\admin;
+
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -47,5 +50,31 @@ class LoginController extends Controller
         $value = session('key');
         
         return view('try');
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $id = $request->adminName; 
+        $data = admin::all();
+        $validatedName = $request->adminName;
+        dd($id);
+        $validatedPass = $request->adminPassword;
+        foreach($data as $data2){
+            $data3 = $data2->adminName; 
+            $data4 = $data2->adminPassword;
+        }
+        $verify = password_verify($validatedPass,$data4);
+        if($validatedName == $data3 && $verify){
+            $validatedData = $request->validate([
+                'adminName'   => 'required',
+                'adminPassword' => 'required|min:8'
+            ]);
+            session_start();
+            session(['key' => $data3]);
+            $value = session('key');
+            
+            return view('/admin/adminHome', compact(['data']));
+        }
+        return redirect()->back()->with('message', 'The email and password does not match.');
     }
 }
