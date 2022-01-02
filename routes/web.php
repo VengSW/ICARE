@@ -18,40 +18,28 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-//DEFAULT
+//Redirect to welcome page
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes(['verify' => true]);//verification mail
-
+//verification mail
+Auth::routes(['verify' => true]);
+//redirect to home after login successful
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-
-//----------------------------------------------------------------------------MANAGE REGISTRATION--------------------------------------------------------------------------------
-//route for register account
-
-
-//Redirect to homepage
-/*Route::get('/homepage', function () {
-    return view('ManageRegistration/homepage');
-});*/
-
+//MANAGE REGISTRATION
 //Redirect to  about page
 Route::get('/about', function () {
-    //$UserID =Auth::user();
-    //dd ($UserID);
-    
     return view('ManageRegistration/about');
-})->middleware(['auth']);//require login 
+})->middleware(['auth']);
 
-Route::post('/updateName',[AccountController::class,'updateName']);
-Route::get('/deleteAccount',[AccountController::class,'deleteAccount']);
-Route::post('/updatePic',[AccountController::class,'updatePic']);
+Route::post('/updateName',[AccountController::class,'updateName']); //update user's name
+Route::get('/deleteAccount',[AccountController::class,'deleteAccount']); //delete user's account
+Route::post('/updatePic',[AccountController::class,'updatePic']); //update user's profile picture
 
-/**/
-//------------------------------------------------------------------------------MANAGE RECOGNITION------------------------------------------------------------------------------------
+
+//MANAGE RECOGNITION------------------------------------------------------------------------------------
 
 
 //redirect to recognition started page
@@ -61,34 +49,22 @@ Route::get('/recognition', function () {//works
 
 
 
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<STILL WORKING ON IT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-
-Route::get('/loginkey', [LoginController::class,'loginkey']);
-
-//Route::get('/',[HomeController::class,'getLogout']);
-
-
-
-
-
-
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+//MANAGE EXERCISE------------------------------------------------------------------------------------------
 //Redirect to exercises page
 Route::get('/exercise', function () {
     return view('ManageExercise/exercisePage');
 })->middleware(['auth']);
+
 //Redirect to correct sitting page
 Route::get('/correctSitting', function () {
     return view('ManageExercise/correctSitting');
 })->middleware(['auth']);
+
 //Redirect to tips page
 Route::get('/tips', function () {
     return view('ManageExercise/tips');
 })->middleware(['auth']);
+
 //Redirect to timer page
 Route::get('/timer', function () {
     return view('ManageTimer/timerPage');
@@ -96,4 +72,3 @@ Route::get('/timer', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
