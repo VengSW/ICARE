@@ -42,39 +42,6 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function loginkey(Request $request)
-    {
-        $id = $request->UserID; 
-        $data = User::where('UserID', $id)->get();
-        session(['key' => $data]);
-        $value = session('key');
-        
-        return view('try');
-    }
+    
 
-    public function adminLogin(Request $request)
-    {
-        $id = $request->adminName; 
-        $data = admin::all();
-        $validatedName = $request->adminName;
-        dd($id);
-        $validatedPass = $request->adminPassword;
-        foreach($data as $data2){
-            $data3 = $data2->adminName; 
-            $data4 = $data2->adminPassword;
-        }
-        $verify = password_verify($validatedPass,$data4);
-        if($validatedName == $data3 && $verify){
-            $validatedData = $request->validate([
-                'adminName'   => 'required',
-                'adminPassword' => 'required|min:8'
-            ]);
-            session_start();
-            session(['key' => $data3]);
-            $value = session('key');
-            
-            return view('/admin/adminHome', compact(['data']));
-        }
-        return redirect()->back()->with('message', 'The email and password does not match.');
-    }
 }
