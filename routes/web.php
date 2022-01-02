@@ -4,13 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Fascades\Mail;
 use Illuminate\Support\Fascades\Session;
 
-use App\Http\Controllers\ManageRecognitionController;
-use App\Http\Controllers\ManageRegistrationController;
-use App\Http\Controllers\ManageExerciseController;
-use App\Http\Controllers\ManageTimerController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\adminController;
-use App\Http\Controllers\SessionController;
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +27,6 @@ Auth::routes(['verify' => true]);//verification mail
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//admin
-Route::get('/adminLogin',[App\Http\Controllers\adminController::class,'loginpage']);//display admin login page
-Route::get('/adminReg', function () {return view('\admin\adminRegister');});//display admin form
-Route::post('/adminCreate','App\Http\Controllers\adminController@create');//create admin account
-Route::post('/adlogin', [App\Http\Controllers\Auth\LoginController::class,'adminLogin']); //login function
-Route::get('/adhome',[App\Http\Controllers\adminController::class,'index']);//list all users
 
 
 //----------------------------------------------------------------------------MANAGE REGISTRATION--------------------------------------------------------------------------------
@@ -57,28 +46,19 @@ Route::get('/about', function () {
     return view('ManageRegistration/about');
 })->middleware(['auth']);//require login 
 
-Route::post('/updateName',[ManageRegistrationController::class,'updateName']);
-Route::get('/deleteAccount',[ManageRegistrationController::class,'deleteAccount']);
-Route::post('/updatePic',[ManageRegistrationController::class,'updatePic']);
+Route::post('/updateName',[AccountController::class,'updateName']);
+Route::get('/deleteAccount',[AccountController::class,'deleteAccount']);
+Route::post('/updatePic',[AccountController::class,'updatePic']);
 
 /**/
 //------------------------------------------------------------------------------MANAGE RECOGNITION------------------------------------------------------------------------------------
-//Redirect to recognition page successfully
-/*Route::get('/recognition', function () { //works
-    return view('ManageRecognition/recognitionPage');
-});*/
-Route::post('/submit','App\Http\Controllers\ManageRecognitionController@create')->name('ManageRecognition.create')->middleware(['auth']);//Create record successfully
+
 
 //redirect to recognition started page
-Route::get('/startRecognition', function () {//works
-    return view('manageRecognition/recognitionStartedPage');
+Route::get('/recognition', function () {//works
+    return view('manageRecognition/manageRecognitionPage');
 })->middleware(['auth']);
 
-Route::get('/recognition',[ManageRecognitionController::class,'viewRecognitionPage'])->name('ManageRecognition.viewRecognitionPage')->middleware(['auth']); //view recognition page
-
-Route::get('/show/{recordID}', [ManageRecognitionController::class, 'show'])->name('ManageRecognition.show')->middleware(['auth']);//View record details
-
-Route::get('/destroy/{recordID}', [ManageRecognitionController::class, 'destroy'])->name('ManageRecognition.destroy')->middleware(['auth']);// Delete record details
 
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<STILL WORKING ON IT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -90,17 +70,7 @@ Route::get('/loginkey', [LoginController::class,'loginkey']);
 //Route::get('/',[HomeController::class,'getLogout']);
 
 
-//test view recognition page with viewRecognitionPage()
-//Route::get('/ManageRecognition/viewRecognitionPage/{id}','App\Http\Controllers\ManageRecognitionController@viewRecognitionPage')->name('ManageRecognition.viewRecognitionPage');//missing parameter
 
-
-
-
-
-//Redirect to record details page
-Route::get('/record', function () {
-    return view('ManageRecognition/recordDetailsPage');
-})->middleware(['auth']);
 
 
 
@@ -121,7 +91,7 @@ Route::get('/tips', function () {
 })->middleware(['auth']);
 //Redirect to timer page
 Route::get('/timer', function () {
-    return view('ManageTimer/timerSettingPage');
+    return view('ManageTimer/timerPage');
 })->middleware(['auth']);
 
 Auth::routes();

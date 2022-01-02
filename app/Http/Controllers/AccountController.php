@@ -8,13 +8,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
-class ManageRegistrationController extends Controller
+class AccountController extends Controller
 {
-    // function index()
-    // {
-    //     return view('LoginPage');
-    // }
-
+    
     // update user's name
     public function updateName(Request $request){
         $request->validate([
@@ -26,13 +22,6 @@ class ManageRegistrationController extends Controller
         return back()->with('success','User name updated');
     }
 
-    // public function store(Request $request){
-    //     $user = Auth::user();
-    //     $user->picture = $request['picture'];
-    //     dd($user->picture);
-    //     $user->save();
-    //     return back()->with('success','Profile Updated');
-    // }
 
     // delete user's account
     public function deleteAccount(){
