@@ -140,7 +140,7 @@
         }
         
         h4{
-            text-align: center;
+            text-align: left;
             font-family: 'ZCOOL XiaoWei' ;
         }
 
@@ -155,7 +155,8 @@
             border-radius: 35px;
             border: none;
             padding: 10px 70px;
-            background-color: #91C788;
+            background-color: black;
+            /* background-color: #91C788; */
             align-items: center;
         }
         .main-btn:hover{
@@ -181,12 +182,12 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3 id="username">{{ Auth::user()->name }}</h3>
-                <img id="logo" src="images/profile/{{ Auth::user()->picture }}" name="picture" alt="logo" width="100" height="100">
+                <h4>Hello </h4>
+                <img id="logo" src="images/profile/{{ Auth::user()->picture }}" name="picture" alt="profile picture" width="100" height="100">
             </div>
     
             <ul class="list-unstyled components">
-                <h4>ICARE</h4>
+                <h3 id="username" style="text-align: center">{{ Auth::user()->name }}</h3>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a> <!--data-toggle for the dropdown effect; droptown-toggle: arrow icon-->
                     <ul class="collapse list-unstyled" id="homeSubmenu">

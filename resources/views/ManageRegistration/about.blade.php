@@ -1,6 +1,6 @@
 @extends('layouts.nav')
 
-<title>Learn More</title>
+<title>About</title>
     <style>
         p{
             border-radius: 25px;
@@ -8,6 +8,10 @@
             text-align: justify;
             font-family: Goudy Old Style;
             font-size: 25px;
+        }
+        .effects{
+            margin: 10px 150px;
+            text-align: justify;
         }
         .card-header{
             font-family:Mongolian;
@@ -62,14 +66,24 @@
                     Keep distance of your monitor approximately an arm's length away and ensure the top of the screen is level with your eyes and now you are in a good sitting posture!
                 </p>
             </article>
+            <img id="pic1" src="/images/pic1.png" alt="Correct sitting">
+            <img id="pic2" src="/images/pic2.png" alt="Incorrect sitting">
+            <article>
+                <div class="a-title">Effects of Poor Sitting Posture</div>
+                <div class="effects">
+                    <li>Back, Neck, Shoulder Pain: Poor sitting posture can result in muscle tension and stiffness.</li>
+                    <li>Poor Blood Circulation: When you are having poor sitting posture your body will be kept from neccessary blood circulation required.</li>
+                    <li>Poor Digestion: When you are slouching adominal organ including the disgestive track will be compressed and affect your ability to digest food.</li>
+                    <li>Spine Misaligned: Poor posture will give a negative impact to your spine and cause it misaligned.</li>
+                </div>
+            </article>
         </article>
         
         
-        <p>
-            Thank you for joining us!
+        <p style="font-family: style; color: #1e4729; font-weight: bold; text-align: center;">
+            Thank you for joining us and have a nice day!
         </p>
         
-        <img id="pic1" src="/images/pic1.png" alt="Correct sitting">
-        <img id="pic2" src="/images/pic2.png" alt="Incorrect sitting">
+        
     </div>
 @endsection

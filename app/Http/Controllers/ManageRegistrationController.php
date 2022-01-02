@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\File;
 
 class ManageRegistrationController extends Controller
 {
-    function index()
-    {
-        return view('LoginPage');
-    }
+    // function index()
+    // {
+    //     return view('LoginPage');
+    // }
 
+    // update user's name
     public function updateName(Request $request){
         $request->validate([
             'name' =>'required|min:4|string|max:255'
@@ -22,17 +23,18 @@ class ManageRegistrationController extends Controller
         $user = Auth::user();
         $user->name = $request['name'];
         $user->save();
-        return back()->with('success','Profile Updated');
+        return back()->with('success','User name updated');
     }
 
-    public function store(Request $request){
-        $user = Auth::user();
-        $user->picture = $request['picture'];
-        dd($user->picture);
-        $user->save();
-        return back()->with('success','Profile Updated');
-    }
+    // public function store(Request $request){
+    //     $user = Auth::user();
+    //     $user->picture = $request['picture'];
+    //     dd($user->picture);
+    //     $user->save();
+    //     return back()->with('success','Profile Updated');
+    // }
 
+    // delete user's account
     public function deleteAccount(){
         $user = Auth::user()->UserID;
         $data = User::find($user);
@@ -40,8 +42,8 @@ class ManageRegistrationController extends Controller
         return back()->with('success', 'Account deleted!');
     }
 
+    // update user's profile picture
     public function updatePic(Request $req){
-        // $img = Auth::user()->picture; //default image
         $user = Auth::user(); 
         $picture = $req->file('picture');
         // dd($picture);
@@ -51,7 +53,7 @@ class ManageRegistrationController extends Controller
 
         
         return back()
-            ->with('success','You have successfully upload image.')
+            ->with('success','You have successfully update preofile picture!')
             ->with('picture',$newpicture);
     }
 }
