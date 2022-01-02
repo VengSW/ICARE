@@ -7,17 +7,14 @@
         <title>ICARE</title>
         <style>
                 h1{
+                    font-size: 80px;
                     margin: 10px;
                     font-family: "Lucida Fax";
-                    color: #52734D;
-                    font-size: 50px;
+                    color: #354a32;
                 }
                 body{
                     padding-top: 100px;
                     background-color: #FEFFDE;
-                }
-                div{
-                    font-size: 30px;
                 }
                 p{
                     font-size: 25px;
@@ -26,25 +23,19 @@
                     font-family: 'ZCOOL XiaoWei' ;
                     font-size: 20px;
                     color: white;
-                    border-radius: 35px;
+                    border-radius: 15px;
                     border: none;
                     padding: 10px 70px;
-                    background-color: #91C788;
+                    background-color: black;
                     align-items: center;
                 }
                 button:hover{
                     background-color: #77a66f;
                 }
-                
-                .shadow {
-                    -moz-box-shadow:    3px 3px 5px 6px #ccc;
-                    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-                    box-shadow:         3px 3px 5px 6px #ccc;
+                img{
+                    width: 300px;
+                    height: 120px;
                 }
-
-                /* .admin{
-                    margin-right: 0;
-                } */
                 a{
                     font-size: 20px;
                     text-decoration:none;
@@ -57,14 +48,12 @@
     </head>
 
     <body>
-    <div class="admin"><a href="/adminLogin">Admin</a></div>
         <center>
             <div style="height: 10vh;"></div>
-            <h1>Welcome to</h1>
+            <h1>Welcome To</h1>
             <div style="height: 20vh;">
-                ICARE
+                <img src="/images/icare3.png" alt="logo">
                 <p><i>Computer Vision Syndrome Recognition For Sitting Posture<i><p>
-                    
             </div>
             <button onclick="location.href='/register'"><i>{{ __('Register Now') }}</button>
             <button onclick="location.href='/login'"><i>{{ __('Log In') }}</button>

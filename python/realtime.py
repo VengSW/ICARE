@@ -76,8 +76,8 @@ def gen_frames_mediapipe():  # generate frame by frame from camera
                     
                 if prediction == 0:
                     image = cv2.putText(image, 'Poor Posture', org, font, fontScale, color, thickness, cv2.LINE_AA)
-                    # playsound('C:/Users/User/Downloads/bell.wav')
                     # camera.release()
+                    # playsound('C:/Users/User/Downloads/bell.wav')
 
                 ret, buffer = cv2.imencode('.jpg', image)
                 frame = buffer.tobytes()

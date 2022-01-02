@@ -6,18 +6,13 @@
 	
 ?>
 <style>
-    .content{
-        transform: translateX(30px);
-    }
+    /* user profile information and actions */
     .card{
         background-color: #7C9473 ;
         color:white;
         transform: translateX(430px) translateY(50px);
     }
-    .img{
-        width: 200px;
-        height:200px;
-    }
+    /* buttons in the user profile */
     button{
         font-family: "Lucida Fax";
         font-size: 15px;
@@ -25,14 +20,17 @@
         border: none;
         align-items: center;
         background-color: #597854;
+        /* background-color: #597854; */
         border-radius: 5px;
     }
     button:hover{
         background-color: #677a5f;
     }
+    /* user's name input placeholder */
     ::-webkit-input-placeholder {
         color:white;
     }
+    /* user's name input */
     input{
         color:white;
     }
@@ -43,14 +41,14 @@
       {{ session()->get('success') }}  
 <br></p>
 @endif
-<h2 class="header" style="transform: translateX(650px);">Home Page</h2>
-<!-- <img id="logo" src="/images/icare2.png" alt="logo" width="150" height="150" style="transform: translateX(700px);"> -->
+<!-- <h2 class="header" style="transform: translateX(650px);">Home Page</h2> -->
+<img id="logo" src="/images/icare3.png" alt="logo" width="300" height="120" style="transform: translateX(600px);">
 <div class="content">
 <div class="container">
     <div class="row justify-content-center">
         <div class=".col-xs-12 .col-sm-6 .col-lg-8">
             <div class="card shadow">
-            <div class="navbar-brand" style="font-size: 40px; color:white; text-align:center; "> Welcome Back  To ICARE</div><br> 
+            <div class="navbar-brand" style="font-size: 40px; color:white; text-align:center; "> Welcome Back !!!</div><br> 
                 <div class="card-header">{{ __('User Profile') }}</div>
                     <div class="card-body">
                         <table>
@@ -77,7 +75,7 @@
                             </tr>
                             <tr colspan="3">
                                 <td>Password</td>
-                                <td>:Top Secret</td>
+                                <td>:********</td>
                                 <td><button onclick="location.href='/password/reset'">Change Password</button></td>
                             </tr>
                         </table>
